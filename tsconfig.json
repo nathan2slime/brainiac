@@ -1,0 +1,3 @@
+{
+	"extends": "@edo/typescript-config/base.json"
+}

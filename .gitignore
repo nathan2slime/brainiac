@@ -1,0 +1,20 @@
+# dependency
+node_modules
+
+# output
+build
+dist
+.turbo
+.next
+
+# tests
+coverage
+
+# enviroment
+.env
+
+# logs
+npm-debug.log
+pnpm-debug.log
+yarn-debug.log
+yarn-error.log
