@@ -1,5 +1,6 @@
 # dependency
 node_modules
+db.json
 
 # output
 build

@@ -1,3 +1,3 @@
 {
-	"extends": "@edo/typescript-config/base.json"
+  "extends": "@iac/tsconfig/base.json"
 }
