@@ -9,7 +9,7 @@ export default defineConfig({
   skipNodeModulesBundle: true,
   sourcemap: false,
   tsconfig: 'tsconfig.json',
-  
+
   external: ['@iac/tailwind-config'],
   clean: true
 })

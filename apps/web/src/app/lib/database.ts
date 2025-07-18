@@ -1,6 +1,6 @@
+import path from 'node:path'
 import { Low } from 'lowdb'
 import { JSONFile } from 'lowdb/node'
-import path from 'node:path'
 
 type User = { id: number; name: string }
 type Data = { users: User[] }

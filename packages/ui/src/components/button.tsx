@@ -3,7 +3,7 @@
 import clsx from 'clsx'
 
 import { HTMLAttributes } from 'react'
-import { tv, VariantProps } from 'tailwind-variants'
+import { VariantProps, tv } from 'tailwind-variants'
 
 const styles = tv({
   base: 'bg-base-gold text-white font-semibold py-2 px-4 rounded'
