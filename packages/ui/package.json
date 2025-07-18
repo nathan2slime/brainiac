@@ -5,6 +5,7 @@
   "scripts": {
     "dev:styles": "tailwindcss -i ./src/styles.css -o ./dist/styles --watch",
     "dev": "tsup --watch",
+    "test": "vitest run",
     "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/styles",
     "build": "tsup"
   },
@@ -27,8 +28,12 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "@iac/typescript-config": "workspace:*",
+    "@testing-library/react": "^16.3.0",
+    "@vitejs/plugin-react": "^4.6.0",
+    "jsdom": "^26.1.0",
     "@iac/tailwind-config": "workspace:*",
+    "@iac/typescript-config": "workspace:*",
+    "@testing-library/jest-dom": "^6.6.3",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "tsup": "^8.5.0",

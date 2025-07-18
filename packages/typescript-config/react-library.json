@@ -4,8 +4,8 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "lib": ["ES2015"],
-    "module": "nodenext",
-    "moduleResolution": "NodeNext",
+    "module": "preserve",
+    "moduleResolution": "bundler",
     "target": "es6",
     "outDir": "dist",
     "declaration": true
