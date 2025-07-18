@@ -7,6 +7,7 @@ build
 dist
 .turbo
 .next
+storybook-static
 
 # tests
 coverage

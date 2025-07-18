@@ -25,13 +25,13 @@
     "@changesets/cli": "^2.29.5",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@iac/tsconfig": "workspace:*",
+    "@iac/typescript-config": "workspace:*",
     "@nestjs/config": "^4.0.2",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv-cli": "^8.0.0",
     "lefthook": "^1.12.2",
-    "turbo": "^2.5.4",
+    "turbo": "^2.5.5",
     "typescript": "5.7.3"
   },
   "config": {

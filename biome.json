@@ -8,7 +8,13 @@
   "files": {
     "ignoreUnknown": false,
 
-    "ignore": ["**/dist/*", "**/.next/**", "**/public/**", ".turbo"]
+    "ignore": [
+      "**/dist/*",
+      "**/.next/**",
+      "**/public/**",
+      "**/storybook-static/**",
+      ".turbo"
+    ]
   },
   "formatter": {
     "enabled": true,
