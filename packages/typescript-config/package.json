@@ -1,5 +1,5 @@
 {
-  "name": "@iac/tsconfig",
+  "name": "@iac/typescript-config",
   "version": "0.0.0",
   "private": true,
   "publishConfig": {
