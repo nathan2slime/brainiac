@@ -20,6 +20,11 @@
       "types": "./dist/input.d.ts",
       "import": "./dist/input.js",
       "require": "./dist/input.cjs"
+    },
+    "./message": {
+      "types": "./dist/message.d.ts",
+      "import": "./dist/message.js",
+      "require": "./dist/message.cjs"
     }
   },
   "dependencies": {
