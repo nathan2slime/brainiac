@@ -22,7 +22,11 @@ describe('Button', () => {
   it('renders as disabled when disabled prop is set', async () => {
     const onClick = vi.fn()
 
-    const { getByRole } = render(<Button disabled>Disabled</Button>)
+    const { getByRole } = render(
+      <Button disabled onClick={onClick}>
+        Disabled
+      </Button>
+    )
 
     await userEvent.click(getByRole('button'))
 
