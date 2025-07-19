@@ -1,17 +1,16 @@
-import { Message } from '@iac/ui/message'
+import { Card } from '@iac/ui/card'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  component: Message,
-  title: 'Components/Message',
+  component: Card,
+  title: 'Components/Card',
+
   tags: ['autodocs']
-} satisfies Meta<typeof Message>
+} satisfies Meta<typeof Card>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {
-    children: 'Field is required'
-  }
+  args: {}
 }
