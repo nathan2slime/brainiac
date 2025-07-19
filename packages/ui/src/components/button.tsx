@@ -2,15 +2,28 @@
 
 import clsx from 'clsx'
 
-import { HTMLAttributes } from 'react'
+import { HTMLMotionProps, motion } from 'framer-motion'
 import { VariantProps, tv } from 'tailwind-variants'
 
 const styles = tv({
-  base: 'bg-base-gold text-white font-semibold py-2 px-4 rounded'
+  base: 'text-base font-semibold cursor-pointer h-10 py-2 px-6 duration-150 transition-all rounded-lg',
+  variants: {
+    variant: {
+      primary: 'bg-base-pine text-dawn-text hover:bg-base-pine/80',
+      secondary: 'bg-base-surface text-base-text hover:bg-base-highlight-low',
+      destructive: 'bg-base-love text-dawn-text hover:bg-base-love/80',
+      outline: 'border border-base-muted text-base-muted hover:text-base-text hover:bg-base-muted',
+      ghost: 'text-base-muted hover:bg-base-muted hover:text-base-text',
+      link: 'text-link underline text-base-text hover:text-base-muted'
+    }
+  },
+  defaultVariants: {
+    variant: 'primary'
+  }
 })
 
-export type ButtonProps = {} & VariantProps<typeof styles> & HTMLAttributes<HTMLButtonElement>
+export type ButtonProps = VariantProps<typeof styles> & HTMLMotionProps<'button'>
 
-export const Button = ({ className, ...props }: ButtonProps) => {
-  return <button className={clsx(className, styles(props))} {...props} />
-}
+export const Button = ({ className, ...props }: ButtonProps) => (
+  <motion.button whileHover={{ scale: 1.03 }} transition={{ type: 'spring', duration: 0.15 }} className={clsx(className, styles(props))} {...props} />
+)
