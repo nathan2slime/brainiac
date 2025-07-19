@@ -30,7 +30,8 @@ describe('Input', () => {
   })
 
   it('accepts controlled value', () => {
-    const { getByDisplayValue } = render(<Input value="value" />)
+    const onChange = vi.fn()
+    const { getByDisplayValue } = render(<Input value="value" onChange={onChange} />)
 
     expect(getByDisplayValue('value')).toBeTruthy()
   })
