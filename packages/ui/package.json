@@ -15,10 +15,14 @@
       "types": "./dist/button.d.ts",
       "import": "./dist/button.js",
       "require": "./dist/button.cjs"
+    },
+    "./input": {
+      "types": "./dist/input.d.ts",
+      "import": "./dist/input.js",
+      "require": "./dist/input.cjs"
     }
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.11",
     "@tailwindcss/postcss": "^4.1.11",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.6",
@@ -30,11 +34,15 @@
   },
   "devDependencies": {
     "@iac/tailwind-config": "workspace:*",
+    "tailwindcss": "^4.1.11",
+    "@tailwindcss/cli": "^4.1.11",
     "@iac/typescript-config": "workspace:*",
     "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/user-event": "^14.6.1",
     "@testing-library/react": "^16.3.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@vitest/ui": "^3.2.4",
     "@vitejs/plugin-react": "^4.6.0",
     "jsdom": "^26.1.0",
     "tsup": "^8.5.0",

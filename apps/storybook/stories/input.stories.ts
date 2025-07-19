@@ -1,30 +1,31 @@
-import { Button } from '@iac/ui/button'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { fn } from 'storybook/test'
 
+import { Input } from '@iac/ui/input'
+
 const meta = {
-  component: Button,
-  title: 'Components/Button',
+  title: 'Components/Input',
+  component: Input,
   argTypes: {
     variant: {
-      options: ['primary', 'secondary', 'destructive', 'outline', 'ghost', 'link'],
+      options: ['default', 'success', 'destructive'],
       control: {
         type: 'select'
       },
-      description: 'The variant of the button',
+      description: 'Variant of the input',
       defaultValue: 'primary'
     }
   },
   tags: ['autodocs']
-} satisfies Meta<typeof Button>
+} satisfies Meta<typeof Input>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    children: 'Confirm',
-    onClick: fn(),
-    variant: 'primary'
+    variant: 'success',
+    value: 'Discord',
+    onChange: fn()
   }
 }
