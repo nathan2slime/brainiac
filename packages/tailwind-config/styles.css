@@ -16,4 +16,36 @@
   --color-base-highlight-low: oklch(23.54% 0.02 313.32);
   --color-base-highlight-med: oklch(37.07% 0.02 313.42);
   --color-base-highlight-high: oklch(45.27% 0.02 313.43);
+
+  --color-moon-base: oklch(21.44% 0.02 313.26);
+  --color-moon-surface: oklch(25.11% 0.02 313.2);
+  --color-moon-overlay: oklch(29.17% 0.02 313.46);
+  --color-moon-muted: oklch(52.85% 0.03 313.57);
+  --color-moon-subtle: oklch(61.51% 0.03 313.57);
+  --color-moon-text: oklch(91.48% 0.02 313.56);
+  --color-moon-love: oklch(70.37% 0.23 3.79);
+  --color-moon-gold: oklch(86.26% 0.19 79.67);
+  --color-moon-rose: oklch(84.89% 0.18 27.39);
+  --color-moon-pine: oklch(63.27% 0.13 211.25);
+  --color-moon-foam: oklch(82.18% 0.07 219.87);
+  --color-moon-iris: oklch(79.41% 0.12 306.77);
+  --color-moon-highlight-low: oklch(23.54% 0.02 313.32);
+  --color-moon-highlight-med: oklch(37.07% 0.02 313.42);
+  --color-moon-highlight-high: oklch(45.27% 0.02 313.43);
+
+  --color-dawn-base: oklch(97.7% 0.012 49.19);
+  --color-dawn-surface: oklch(99.1% 0.007 49.19);
+  --color-dawn-overlay: oklch(95.2% 0.013 49.19);
+  --color-dawn-muted: oklch(73.9% 0.04 313.56);
+  --color-dawn-subtle: oklch(61.7% 0.04 313.56);
+  --color-dawn-text: oklch(36.2% 0.04 313.56);
+  --color-dawn-love: oklch(56.2% 0.16 356.3);
+  --color-dawn-gold: oklch(84.2% 0.17 74.7);
+  --color-dawn-rose: oklch(77.6% 0.14 27.4);
+  --color-dawn-pine: oklch(44.2% 0.12 211.3);
+  --color-dawn-foam: oklch(62.6% 0.09 219.9);
+  --color-dawn-iris: oklch(58.2% 0.09 306.8);
+  --color-dawn-highlight-low: oklch(96.7% 0.01 49.19);
+  --color-dawn-highlight-med: oklch(87.8% 0.01 49.19);
+  --color-dawn-highlight-high: oklch(81.2% 0.01 49.19);
 }

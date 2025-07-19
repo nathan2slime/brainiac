@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev:styles": "tailwindcss -i ./src/styles.css -o ./dist/styles --watch",
+    "dev:styles": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "dev": "tsup --watch",
     "test": "vitest run",
-    "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/styles",
+    "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "build": "tsup"
   },
   "exports": {
-    "./styles": "./dist/styles",
+    "./styles": "./dist/styles.css",
     "./button": {
       "types": "./dist/button.d.ts",
       "import": "./dist/button.js",
@@ -21,6 +21,7 @@
     "@tailwindcss/cli": "^4.1.11",
     "@tailwindcss/postcss": "^4.1.11",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.23.6",
     "postcss": "^8.5.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -28,14 +29,14 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "@testing-library/react": "^16.3.0",
-    "@vitejs/plugin-react": "^4.6.0",
-    "jsdom": "^26.1.0",
     "@iac/tailwind-config": "workspace:*",
     "@iac/typescript-config": "workspace:*",
     "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "jsdom": "^26.1.0",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"

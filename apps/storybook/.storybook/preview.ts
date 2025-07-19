@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/react-vite'
 
+import '@iac/ui/styles'
+
 const preview: Preview = {
   parameters: {
     controls: {
