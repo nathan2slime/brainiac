@@ -1,0 +1,9 @@
+{
+  "extends": "@iac/typescript-config/react-library.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "."
+  },
+  "include": ["stories/**/*.tsx", "stories/**/*.ts"],
+  "exclude": ["node_modules"]
+}
