@@ -6,7 +6,7 @@ import { tv } from 'tailwind-variants'
 
 const styles = tv({
   slots: {
-    root: 'bg-moon-surface border border-base-highlight-med rounded-xl p-4'
+    root: 'bg-moon-surface border border-base-highlight-low rounded-xl p-6'
   }
 })
 

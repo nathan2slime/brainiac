@@ -30,6 +30,11 @@
       "types": "./dist/card.d.ts",
       "import": "./dist/card.js",
       "require": "./dist/card.cjs"
+    },
+    "./typography": {
+      "types": "./dist/typography.d.ts",
+      "import": "./dist/typography.js",
+      "require": "./dist/typography.cjs"
     }
   },
   "dependencies": {
