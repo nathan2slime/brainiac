@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { email_error, min_length_error, required_error } from '~/app/lib/schemas/messages'
 
 /**
  * Schema for creating a new user.
@@ -9,9 +10,9 @@ import { z } from 'zod'
  * - `password`: Required string, must be at least 6 characters long.
  */
 export const createUserSchema = z.object({
-  username: z.string().min(1, 'Username is required'),
-  email: z.email(),
-  password: z.string().min(6, 'Password must be at least 6 characters long')
+  username: z.string({ error: required_error }).min(1, required_error),
+  email: z.email(email_error),
+  password: z.string({ error: required_error }).min(6, min_length_error(6))
 })
 
 /**

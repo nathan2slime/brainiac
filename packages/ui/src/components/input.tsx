@@ -6,7 +6,7 @@ import { ComponentProps } from 'react'
 import { VariantProps, tv } from 'tailwind-variants'
 
 const styles = tv({
-  base: 'text-base text-base-text outline-none bg-moon-surface border h-10 py-2 px-3 rounded-lg',
+  base: 'text-base text-base-text autofill:bg-transparent outline-none bg-moon-surface border-2 h-10 py-2 px-3 rounded-lg',
   variants: {
     variant: {
       default: 'focus:border-moon-foam border-transparent',
@@ -21,4 +21,4 @@ const styles = tv({
 
 export type InputProps = VariantProps<typeof styles> & ComponentProps<'input'>
 
-export const Input = ({ className, ...props }: InputProps) => <input className={clsx(className, styles(props))} {...props} />
+export const Input = ({ className, value, ...props }: InputProps) => <input className={clsx(className, styles(props))} value={value || ''} {...props} />

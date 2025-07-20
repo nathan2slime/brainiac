@@ -4,7 +4,7 @@
     "editor.defaultFormatter": "biomejs.biome"
   },
   "tailwindCSS.experimental.classRegex": [
-    ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
+    "(?<=tv\\([\\s\\S]*?)[\"']([^\"']+)[\"']"
   ],
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"

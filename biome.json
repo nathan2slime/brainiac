@@ -21,7 +21,7 @@
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
-    "lineWidth": 80,
+    "lineWidth": 70,
     "bracketSpacing": true
   },
   "organizeImports": {
