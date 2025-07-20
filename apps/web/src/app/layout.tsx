@@ -1,14 +1,14 @@
-import clsx from 'clsx'
 import type { Metadata } from 'next'
-import { Sour_Gummy } from 'next/font/google'
+import { Onest } from 'next/font/google'
 
+import { Providers } from '~/app/providers'
 import { AppChildren } from '~/types'
 
 import '~/app/globals.css'
 
-const base = Sour_Gummy({
+const base = Onest({
   subsets: ['latin'],
-  weight: ['400']
+  weight: ['400', '500', '600', '700', '100', '200', '300', '800', '900']
 })
 
 export const metadata: Metadata = {
@@ -19,7 +19,9 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<AppChildren>) => {
   return (
     <html lang="en">
-      <body className={clsx(base.className, 'antialiased')}>{children}</body>
+      <body className={base.className.concat(' antialiased')}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }

@@ -10,7 +10,7 @@ const styles = tv({
       h3: 'text-xl font-semibold',
       h4: 'text-lg font-semibold',
       h5: 'text-base font-semibold',
-      body: 'text-sm font-normal',
+      body: 'text-base font-normal',
       caption: 'text-sm fon-normal',
       button: 'text-sm font-semibold uppercase',
       link: 'text-sm font-normal underline cursor-pointer',
@@ -21,10 +21,10 @@ const styles = tv({
 
 type TypographyVariant = VariantProps<typeof styles>['variant']
 
-export type TypographyBaseProps = {
+export type TypographyBaseProps = Partial<{
   children: ReactNode
   className: string
-}
+}>
 
 const createTypographyComponent = (tag: keyof JSX.IntrinsicElements, variant: TypographyVariant) => {
   const Base = ({ children, className }: TypographyBaseProps) => {
@@ -62,7 +62,7 @@ export const Typography = {
    */
   Body: createTypographyComponent('p', 'body'),
   /**
-   * 14px, normal
+   * 16px, normal
    */
   Caption: createTypographyComponent('span', 'caption'),
   /**

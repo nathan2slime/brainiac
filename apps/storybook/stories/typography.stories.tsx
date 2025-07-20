@@ -45,7 +45,7 @@ export const H5: StoryObj<TypographyBaseProps> = {
 
 export const Body: StoryObj<TypographyBaseProps> = {
   args: {
-    children: 'Body Text - 14px normal'
+    children: 'Body Text - 16px normal'
   },
   render: (args: TypographyBaseProps) => <Typography.Body {...args} />
 }
