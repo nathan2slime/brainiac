@@ -37,7 +37,7 @@ describe('Input', () => {
   })
 
   it('renders with default value', () => {
-    const { getByDisplayValue } = render(<Input defaultValue="initial" />)
+    const { getByDisplayValue } = render(<Input value="initial" />)
 
     expect(getByDisplayValue('initial')).toBeTruthy()
   })
