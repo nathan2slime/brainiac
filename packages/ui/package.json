@@ -10,7 +10,7 @@
     "build": "tsup"
   },
   "exports": {
-    "./styles": "./dist/styles.css",
+    "./styles.css": "./dist/styles.css",
     "./button": {
       "types": "./dist/button.d.ts",
       "import": "./dist/button.js",
@@ -25,6 +25,11 @@
       "types": "./dist/message.d.ts",
       "import": "./dist/message.js",
       "require": "./dist/message.cjs"
+    },
+    "./card": {
+      "types": "./dist/card.d.ts",
+      "import": "./dist/card.js",
+      "require": "./dist/card.cjs"
     }
   },
   "dependencies": {
