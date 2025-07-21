@@ -22,3 +22,14 @@ export const createUserSchema = z.object({
  * and omitting the `password` field to prevent updates to the password.
  */
 export const updateUserSchema = createUserSchema.partial().omit({ password: true })
+
+/**
+ * Zod schema for validating user sign-in credentials.
+ *
+ * @property email - The user's email address. Must be a valid email format.
+ * @property password - The user's password. Must be a non-empty string.
+ */
+export const signInSchema = z.object({
+  email: z.email(email_error),
+  password: z.string({ error: required_error })
+})

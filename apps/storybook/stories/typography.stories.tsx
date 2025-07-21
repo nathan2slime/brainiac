@@ -10,49 +10,49 @@ export default meta
 
 export const H1: StoryObj<TypographyBaseProps> = {
   args: {
-    children: 'Heading 1 - 40px extrabold'
+    children: 'Heading 1'
   },
   render: (args: TypographyBaseProps) => <Typography.H1 {...args} />
 }
 
 export const H2: StoryObj<TypographyBaseProps> = {
   args: {
-    children: 'Heading 2 - 32px bold'
+    children: 'Heading 2'
   },
   render: (args: TypographyBaseProps) => <Typography.H2 {...args} />
 }
 
 export const H3: StoryObj<TypographyBaseProps> = {
   args: {
-    children: 'Heading 3 - 24px semibold'
+    children: 'Heading 3'
   },
   render: (args: TypographyBaseProps) => <Typography.H3 {...args} />
 }
 
 export const H4: StoryObj<TypographyBaseProps> = {
   args: {
-    children: 'Heading 4 - 18px semibold'
+    children: 'Heading 4'
   },
   render: (args: TypographyBaseProps) => <Typography.H4 {...args} />
 }
 
 export const H5: StoryObj<TypographyBaseProps> = {
   args: {
-    children: 'Heading 5 - 16px semibold'
+    children: 'Heading 5'
   },
   render: (args: TypographyBaseProps) => <Typography.H5 {...args} />
 }
 
 export const Body: StoryObj<TypographyBaseProps> = {
   args: {
-    children: 'Body Text - 16px normal'
+    children: 'Body Text'
   },
   render: (args: TypographyBaseProps) => <Typography.Body {...args} />
 }
 
 export const Caption: StoryObj<TypographyBaseProps> = {
   args: {
-    children: 'Caption Text - 14px normal'
+    children: 'Caption Text'
   },
   render: (args: TypographyBaseProps) => <Typography.Caption {...args} />
 }
