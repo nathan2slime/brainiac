@@ -10,22 +10,22 @@ import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { Controller, FormProvider, useForm } from 'react-hook-form'
 
-import { signUpService } from '~/app/api/auth/signup/service'
-import { CreateUserDto } from '~/app/lib/models/user'
-
-import { createUserSchema } from '~/app/lib/schemas/user'
+import { signInService } from '~/app/api/auth/login/service'
+import { SignInDto } from '~/app/lib/models/user'
 import { useAuthStore } from '~/store/auth'
+
+import { signInSchema } from '~/app/lib/schemas/user'
 
 import Brainiac from '~/assets/icons/brainiac.svg'
 
-const SignUp = () => {
+const Login = () => {
   const router = useRouter()
   const setUser = useAuthStore(state => state.setUser)
   const setLoggedIn = useAuthStore(state => state.setLoggedIn)
 
   const { mutate, isPending } = useMutation({
-    mutationKey: ['signup'],
-    mutationFn: signUpService,
+    mutationKey: ['login'],
+    mutationFn: signInService,
     onSuccess: data => {
       setUser(data)
       router.push('/')
@@ -35,39 +35,25 @@ const SignUp = () => {
 
   const form = useForm({
     mode: 'all',
-    resolver: zodResolver(createUserSchema)
+    resolver: zodResolver(signInSchema)
   })
 
   const { isValid } = form.formState
 
-  const onSubmit = async (data: CreateUserDto) => mutate(data)
+  const onSubmit = async (data: SignInDto) => mutate(data)
 
   return (
     <div className="w-full h-full p-4 flex flex-col items-center justify-center">
       <div className="w-full max-w-xs">
         <div className="flex flex-col items-center gap-2 pt-3">
           <Brainiac className="text-base-rose w-20" />
-          <Typography.H1 className="text-base-text">Sign Up</Typography.H1>
-          <Typography.Body className="text-base-subtle text-center">Just a few quick things to get started!</Typography.Body>
+          <Typography.H1 className="text-base-text">Login</Typography.H1>
+          <Typography.Body className="text-base-subtle text-center">Welcome back!</Typography.Body>
         </div>
 
         <div>
           <FormProvider {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="mt-7 p-3 flex mx-auto flex-col gap-3">
-              <Controller
-                name="username"
-                control={form.control}
-                render={({ field, fieldState: { error } }) => (
-                  <div className="flex flex-col gap-2">
-                    <Typography.Body className="text-base-text">Username</Typography.Body>
-
-                    <Input autoComplete="username webauthn" {...field} />
-
-                    {error && <Message>{error.message}</Message>}
-                  </div>
-                )}
-              />
-
               <Controller
                 name="email"
                 control={form.control}
@@ -106,4 +92,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default Login

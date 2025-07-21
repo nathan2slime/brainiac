@@ -16,6 +16,11 @@
       "import": "./dist/button.js",
       "require": "./dist/button.cjs"
     },
+    "./loading": {
+      "types": "./dist/loading.d.ts",
+      "import": "./dist/loading.js",
+      "require": "./dist/loading.cjs"
+    },
     "./input": {
       "types": "./dist/input.d.ts",
       "import": "./dist/input.js",
@@ -41,6 +46,7 @@
     "@tailwindcss/postcss": "^4.1.11",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.6",
+    "ldrs": "^1.1.7",
     "postcss": "^8.5.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -49,17 +55,17 @@
   },
   "devDependencies": {
     "@iac/tailwind-config": "workspace:*",
-    "tailwindcss": "^4.1.11",
-    "@tailwindcss/cli": "^4.1.11",
     "@iac/typescript-config": "workspace:*",
+    "@tailwindcss/cli": "^4.1.11",
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/user-event": "^14.6.1",
     "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
-    "@vitest/ui": "^3.2.4",
     "@vitejs/plugin-react": "^4.6.0",
+    "@vitest/ui": "^3.2.4",
     "jsdom": "^26.1.0",
+    "tailwindcss": "^4.1.11",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"

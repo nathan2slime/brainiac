@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Onest } from 'next/font/google'
 
 import { Providers } from '~/app/providers'
+import { AuthProvider } from '~/components/auth/auth-provider'
 import { AppChildren } from '~/types'
 
 import '~/app/globals.css'
@@ -19,8 +20,10 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<AppChildren>) => {
   return (
     <html lang="en">
-      <body className={base.className.concat(' antialiased')}>
-        <Providers>{children}</Providers>
+      <body className={`${base.className} antialiased`}>
+        <AuthProvider>
+          <Providers>{children}</Providers>
+        </AuthProvider>
       </body>
     </html>
   )

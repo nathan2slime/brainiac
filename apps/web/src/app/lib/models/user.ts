@@ -1,6 +1,6 @@
 import z from 'zod'
 
-import { createUserSchema, updateUserSchema } from '~/app/lib/schemas/user'
+import { createUserSchema, signInSchema, updateUserSchema } from '~/app/lib/schemas/user'
 
 /**
  * Represents the data transfer object (DTO) for creating a user.
@@ -18,14 +18,11 @@ export type CreateUserDto = z.infer<typeof createUserSchema>
  * @remarks
  * The `password` property from `CreateUserDto` is omitted for security reasons.
  */
-export type User = Omit<
-  CreateUserDto & {
-    id: string
-    createdAt: Date
-    updatedAt: Date
-  },
-  'password'
->
+export type User = CreateUserDto & {
+  id: string
+  createdAt: Date
+  updatedAt: Date
+} & Partial<{ password: string }>
 
 /**
  * Data Transfer Object (DTO) type for updating a user.
@@ -34,3 +31,12 @@ export type User = Omit<
  * ensuring that the shape of the update payload matches the schema's validation rules.
  */
 export type UpdateUserDto = z.infer<typeof updateUserSchema>
+
+/**
+ * Data Transfer Object (DTO) representing the shape of user sign-in data,
+ * inferred from the `createUserSchema` Zod schema.
+ *
+ * This type is typically used for validating and typing user input during
+ * the sign-in process.
+ */
+export type SignInDto = z.infer<typeof signInSchema>

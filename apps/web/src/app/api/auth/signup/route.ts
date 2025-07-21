@@ -1,4 +1,5 @@
 import { hash } from 'bcryptjs'
+import ms from 'ms'
 import { cookies } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
 import { EXPIRES_SESSION_TIME, IS_PRODUCTION, SESSION_COOKIE_NAME } from '~/app/lib/config'
@@ -35,7 +36,7 @@ export const POST = async (req: NextRequest) => {
     cookieStore.set({
       name: SESSION_COOKIE_NAME,
       value: user.id,
-      expires: new Date(Date.now() + EXPIRES_SESSION_TIME),
+      expires: new Date(Date.now() + ms(EXPIRES_SESSION_TIME)),
       httpOnly: true,
       secure: IS_PRODUCTION
     })

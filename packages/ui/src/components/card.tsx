@@ -12,4 +12,4 @@ const styles = tv({
 
 const { root } = styles()
 
-export const Card = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => <div {...props} className={clsx(root(), className)} />
+export const Card = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => <div data-testid="card" {...props} className={clsx(root(), className)} />
