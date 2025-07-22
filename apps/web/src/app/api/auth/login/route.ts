@@ -18,7 +18,7 @@ export const POST = async (req: NextRequest) => {
     const user = db.data.users.find(user => user.email === dto.data.email)
 
     if (user) {
-      const password = await compare(dto.data.password, user.password)
+      const password = await compare(dto.data.password, String(user.password))
 
       if (password) {
         const cookieStore = await cookies()
