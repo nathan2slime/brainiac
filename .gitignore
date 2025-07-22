@@ -13,7 +13,7 @@ storybook-static
 coverage
 
 # enviroment
-.env
+.env*.local
 
 # logs
 npm-debug.log

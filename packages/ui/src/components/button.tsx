@@ -12,7 +12,7 @@ const styles = tv({
       primary: 'bg-base-rose text-dawn-text hover:bg-base-rose/80',
       secondary: 'bg-base-surface text-base-text hover:bg-base-highlight-low',
       destructive: 'bg-base-love text-dawn-text hover:bg-base-love/80',
-      outline: 'border border-base-muted text-base-muted hover:text-base-text hover:bg-base-muted',
+      outline: 'border-2 border-base-muted text-base-muted hover:text-base-text hover:bg-base-muted',
       ghost: 'text-base-muted hover:bg-base-muted hover:text-base-text',
       link: 'text-link underline text-base-text hover:text-base-muted'
     },
@@ -31,7 +31,7 @@ export type ButtonProps = VariantProps<typeof styles> & HTMLMotionProps<'button'
 
 export const Button = ({ className, disabled, ...props }: ButtonProps) => (
   <motion.button
-    whileHover={{ scale: disabled ? 1 : 1.03 }}
+    whileFocus={{ scale: disabled ? 1 : 1.03 }}
     transition={{ type: 'spring', duration: 0.15 }}
     className={clsx(className, styles(props))}
     disabled={disabled}

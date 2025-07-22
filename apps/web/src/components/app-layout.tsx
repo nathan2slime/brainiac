@@ -12,9 +12,9 @@ export const AppLayout = ({ children }: AppChildren) => {
 
   return (
     <main className="bg-base-base tracking-wide w-screen h-screen flex flex-col items-center p-2 md:p-6">
-      <div className="w-full md:max-w-lg mx-auto">
-        <Navbar />
+      <div className="w-full md:max-w-lg mx-auto h-full overflow-y-auto">
         {children}
+        <Navbar />
       </div>
     </main>
   )

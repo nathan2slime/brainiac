@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
-import { Onest } from 'next/font/google'
+import { Comic_Relief } from 'next/font/google'
 
 import { Providers } from '~/app/providers'
+import { AppLayout } from '~/components/app-layout'
 import { AuthProvider } from '~/components/auth/auth-provider'
 import { AppChildren } from '~/types'
 
 import '~/app/globals.css'
-import { AppLayout } from '~/components/app-layout'
 
-const base = Onest({
+const base = Comic_Relief({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '100', '200', '300', '800', '900']
+  weight: ['400', '700']
 })
 
 export const metadata: Metadata = {
