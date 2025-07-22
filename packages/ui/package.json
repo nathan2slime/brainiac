@@ -21,6 +21,11 @@
       "import": "./dist/loading.js",
       "require": "./dist/loading.cjs"
     },
+    "./chip": {
+      "types": "./dist/chip.d.ts",
+      "import": "./dist/chip.js",
+      "require": "./dist/chip.cjs"
+    },
     "./input": {
       "types": "./dist/input.d.ts",
       "import": "./dist/input.js",

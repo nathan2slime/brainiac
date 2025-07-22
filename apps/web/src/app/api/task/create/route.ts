@@ -23,7 +23,7 @@ export const POST = async () => {
       description: '',
       title: 'New Task',
       priority: TaskPriority.MEDIUM,
-      status: TaskStatus.MEDIUM
+      status: TaskStatus.PENDING
     }
 
     db.data.tasks.push(task)

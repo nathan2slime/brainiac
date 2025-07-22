@@ -7,7 +7,6 @@ import { searchTaskSchema } from '~/app/lib/schemas/task'
 
 export const GET = async (req: NextRequest) => {
   const cookieStore = await cookies()
-  console.log(req.nextUrl.search)
 
   const searchParams = new URLSearchParams(req.nextUrl.search)
   const sessionCookie = cookieStore.get(SESSION_COOKIE_NAME)

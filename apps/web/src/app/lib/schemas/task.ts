@@ -1,9 +1,9 @@
 import z from 'zod'
 
 export enum TaskStatus {
-  HIGHT = 'high',
-  MEDIUM = 'medium',
-  LOW = 'low'
+  COMPLETED = 'completed',
+  IN_PROGRESS = 'in_progress',
+  PENDING = 'pending'
 }
 
 export enum TaskPriority {
