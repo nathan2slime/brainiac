@@ -6,6 +6,7 @@ import { AuthProvider } from '~/components/auth/auth-provider'
 import { AppChildren } from '~/types'
 
 import '~/app/globals.css'
+import { AppLayout } from '~/components/app-layout'
 
 const base = Onest({
   subsets: ['latin'],
@@ -22,7 +23,9 @@ const RootLayout = ({ children }: Readonly<AppChildren>) => {
     <html lang="en">
       <body className={`${base.className} antialiased`}>
         <AuthProvider>
-          <Providers>{children}</Providers>
+          <Providers>
+            <AppLayout>{children}</AppLayout>
+          </Providers>
         </AuthProvider>
       </body>
     </html>

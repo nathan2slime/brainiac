@@ -30,6 +30,9 @@
   "linter": {
     "enabled": true,
     "rules": {
+      "performance": {
+        "noDelete": "off"
+      },
       "correctness": {
         "noUnusedImports": "error",
         "useExhaustiveDependencies": "off",

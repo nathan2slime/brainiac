@@ -18,8 +18,10 @@ export type CreateUserDto = z.infer<typeof createUserSchema>
  * @remarks
  * The `password` property from `CreateUserDto` is omitted for security reasons.
  */
-export type User = CreateUserDto & {
+export type User = {
   id: string
+  username: string
+  email: string
   createdAt: Date
   updatedAt: Date
 } & Partial<{ password: string }>

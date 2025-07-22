@@ -27,6 +27,7 @@ export const AuthProvider = async ({ children }: AppChildren) => {
     const user = db.data.users.find(user => user.id === userId)
 
     if (user) {
+      delete user.password
       state.user = user
       state.isLoggedIn = true
     }

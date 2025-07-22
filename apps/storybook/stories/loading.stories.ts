@@ -12,8 +12,8 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    size: '50px',
-    speed: '1s',
+    size: '35',
+    speed: '1',
     color: '#5F6AB1'
   }
 }

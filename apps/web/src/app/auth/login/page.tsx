@@ -16,6 +16,7 @@ import { useAuthStore } from '~/store/auth'
 
 import { signInSchema } from '~/app/lib/schemas/user'
 
+import Link from 'next/link'
 import Brainiac from '~/assets/icons/brainiac.svg'
 
 const Login = () => {
@@ -81,6 +82,11 @@ const Login = () => {
                   </div>
                 )}
               />
+
+              <Link href="/auth/signup">
+                <Typography.Link className="text-base-rose">Don't have an account? Sign up</Typography.Link>
+              </Link>
+
               <Button disabled={!isValid} className="w-full mt-4">
                 {isPending ? <Loading /> : <Typography.Button>Continue</Typography.Button>}
               </Button>

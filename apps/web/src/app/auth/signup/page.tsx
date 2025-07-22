@@ -7,6 +7,7 @@ import { Loading } from '@iac/ui/loading'
 import { Message } from '@iac/ui/message'
 import { Typography } from '@iac/ui/typography'
 import { useMutation } from '@tanstack/react-query'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Controller, FormProvider, useForm } from 'react-hook-form'
 
@@ -95,6 +96,11 @@ const SignUp = () => {
                   </div>
                 )}
               />
+
+              <Link href="/auth/login">
+                <Typography.Link className="text-base-rose">Already have an account? Sign in</Typography.Link>
+              </Link>
+
               <Button disabled={!isValid} className="w-full mt-4">
                 {isPending ? <Loading /> : <Typography.Button>Continue</Typography.Button>}
               </Button>
