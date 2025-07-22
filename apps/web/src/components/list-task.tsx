@@ -2,6 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query'
 import { useSearchParams } from 'next/navigation'
+import { Masonry } from 'react-plock'
 
 import { searchTaskService } from '~/app/api/task/search/service'
 import { CardTask } from '~/components/card-task'
@@ -16,11 +17,15 @@ export const ListTask = () => {
 
   if (tasks.length) {
     return (
-      <div>
-        {tasks.map(task => (
-          <CardTask key={task.id} data={task} />
-        ))}
-      </div>
+      <Masonry
+        config={{
+          columns: [1, 2, 3, 1, 2, 3],
+          media: [400, 600, 768, 880, 970, 1024],
+          gap: [10, 12, 15, 15, 15, 15, 15]
+        }}
+        items={tasks}
+        render={item => <CardTask key={item.id} data={item} />}
+      />
     )
   }
 
