@@ -21,4 +21,4 @@ const styles = tv({
 
 export type InputProps = VariantProps<typeof styles> & ComponentProps<'input'>
 
-export const Input = ({ className, value, ...props }: InputProps) => <input className={clsx(className, styles(props))} value={value || ''} {...props} />
+export const Input = ({ className, value, ...props }: InputProps) => <input className={clsx(className, styles(props))} value={value} {...props} />

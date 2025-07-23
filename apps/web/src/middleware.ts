@@ -10,6 +10,7 @@ const middleware = async (req: NextRequest) => {
   const url = req.nextUrl
 
   headers.set('x-pathname', url.pathname)
+  headers.set('x-search-params', url.searchParams.toString())
 
   if (isLogged || url.pathname.startsWith('/auth')) {
     return NextResponse.next({ headers, request: { headers } })

@@ -22,8 +22,10 @@ COPY --from=builder /app/out/json/ .
 RUN pnpm install
 
 COPY --from=builder /app/out/full/ .
+ARG NEXT_PUBLIC_SITE_URL
 ENV TURBO_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
 RUN pnpm build --filter=@iac/web...
 
 FROM base AS runner

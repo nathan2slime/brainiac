@@ -38,6 +38,9 @@
         "useExhaustiveDependencies": "off",
         "noUnusedVariables": "error"
       },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
       "a11y": {
         "noSvgWithoutTitle": "off",
         "useKeyWithClickEvents": "off"

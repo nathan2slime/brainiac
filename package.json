@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "turbo run start",
-    "dev": "NODE_ENV=development turbo run dev",
-    "build": "NODE_ENV=production turbo run build",
+    "start": "dotenv -e .env.local -- turbo run start",
+    "dev": "NODE_ENV=development dotenv -e .env.local -- turbo run dev",
+    "build": "NODE_ENV=production dotenv -e .env.local -- turbo run build",
     "lint": "biome check",
     "test": "turbo run test",
     "format": "biome format --write",

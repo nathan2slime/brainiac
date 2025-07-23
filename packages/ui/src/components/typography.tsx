@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { JSX, ReactNode } from 'react'
+import { HTMLAttributes, JSX, createElement } from 'react'
 import { VariantProps, tv } from 'tailwind-variants'
 
 const styles = tv({
@@ -21,16 +21,11 @@ const styles = tv({
 
 type TypographyVariant = VariantProps<typeof styles>['variant']
 
-export type TypographyBaseProps = Partial<{
-  children: ReactNode
-  className: string
-}>
+export type TypographyBaseProps = HTMLAttributes<HTMLElement>
 
 const createTypographyComponent = (tag: keyof JSX.IntrinsicElements, variant: TypographyVariant) => {
-  const Base = ({ children, className }: TypographyBaseProps) => {
-    const Component = tag
-
-    return <Component className={clsx(styles({ variant }), className)}>{children}</Component>
+  const Base = ({ children, className, ...props }: TypographyBaseProps) => {
+    return createElement(tag, { ...props, className: clsx(styles({ variant, className })) }, children)
   }
 
   return Base
