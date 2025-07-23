@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 
-import { Navbar } from '~/components/navbar'
+import { TabBar } from '~/components/tabbar'
 import { AppChildren } from '~/types'
 
 export const AppLayout = ({ children }: AppChildren) => {
@@ -14,7 +14,7 @@ export const AppLayout = ({ children }: AppChildren) => {
     <main className="bg-base-base tracking-wide w-screen md:pb-[200px] h-screen overflow-y-auto flex flex-col items-center md:pt-8 md:px-8 px-4 pt-4">
       <div className="w-full md:max-w-3xl mx-auto h-fit">
         {children}
-        <Navbar />
+        <TabBar />
       </div>
     </main>
   )

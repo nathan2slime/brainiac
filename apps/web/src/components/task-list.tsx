@@ -7,7 +7,7 @@ import { Masonry } from 'react-plock'
 import { searchTaskService } from '~/app/api/task/search/service'
 import { CardTask } from '~/components/card-task'
 
-export const ListTask = () => {
+export const TaskList = () => {
   const searchParams = useSearchParams()
 
   const { data: tasks = [] } = useQuery({

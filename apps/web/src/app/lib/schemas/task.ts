@@ -1,3 +1,4 @@
+import { decompressFromEncodedURIComponent } from 'lz-string'
 import z from 'zod'
 
 export enum TaskStatus {
@@ -21,10 +22,33 @@ export const updateTaskSchema = z.object({
 })
 
 export const searchTaskSchema = z.object({
-  title: z.string().optional(),
+  q: z
+    .string()
+    .transform(value => {
+      if (value) {
+        value.toLowerCase()
+      }
+
+      return value
+    })
+    .optional(),
   status: z.enum(TaskStatus).optional(),
   priority: z.enum(TaskPriority).optional(),
-  categories: z.array(z.string()).optional()
+  categories: z
+    .string()
+    .transform<string[]>(value => {
+      try {
+        const categories = JSON.parse(decompressFromEncodedURIComponent(value))
+        return Array.isArray(categories) ? categories : []
+      } catch {
+        return []
+      }
+    })
+    .optional()
 })
 
-export type SearchTaskDto = z.infer<typeof searchTaskSchema>
+export type SearchTaskDto = Partial<
+  z.infer<typeof searchTaskSchema> & {
+    categories: string[]
+  }
+>

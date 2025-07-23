@@ -15,33 +15,46 @@ export const GET = async (req: NextRequest) => {
     const userId = sessionCookie.value
     const db = await getDatabase()
 
-    const query = searchTaskSchema.safeParse(Object.fromEntries(searchParams.entries()))
+    const searchParamsStore = Object.fromEntries(searchParams.entries())
+    const queryArgs = searchTaskSchema.safeParse(searchParamsStore)
 
-    const tasks = db.data.tasks.filter(task => {
-      const filters = [task.userId === userId]
+    const tasks = db.data.tasks.filter(task => task.userId === userId)
 
-      if (query.success) {
-        if (query.data.title && task.title) {
-          filters.push(task.title.toLowerCase().includes(query.data.title.toLowerCase()))
-        }
+    const results = Object.keys(searchParamsStore).length
+      ? tasks.filter(task => {
+          const filters = []
 
-        if (query.data.status) {
-          filters.push(task.status === query.data.status)
-        }
+          if (queryArgs.success) {
+            const { q: query, categories, priority, status } = queryArgs.data
 
-        if (query.data.priority) {
-          filters.push(task.priority === query.data.priority)
-        }
+            if (query) {
+              const isTitleMatch = (task.title || '').toLowerCase().includes(query)
 
-        if (query.data.categories) {
-          filters.push(query.data.categories.every(cat => (task.categories || []).includes(cat)))
-        }
-      }
+              if (isTitleMatch) {
+                filters.push(isTitleMatch)
+              } else if (task.description) {
+                filters.push(task.description.toLowerCase().includes(query))
+              }
+            }
 
-      return filters.every(Boolean)
-    })
+            if (status) {
+              filters.push(task.status === status)
+            }
 
-    return NextResponse.json(tasks, { status: 200 })
+            if (priority) {
+              filters.push(task.priority === priority)
+            }
+
+            if (categories) {
+              filters.push(categories.every(cat => (task.categories || []).includes(cat.toLowerCase())))
+            }
+          }
+
+          return filters.length > 0 && filters.every(Boolean)
+        })
+      : tasks
+
+    return NextResponse.json(results, { status: 200 })
   }
 
   return NextResponse.json('Unauthorized', { status: 401 })

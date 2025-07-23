@@ -1,6 +1,6 @@
 import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query'
 import { searchTaskService } from '~/app/api/task/search/service'
-import { ListTask } from '~/components/list-task'
+import { TaskList } from '~/components/task-list'
 
 type Props = {
   searchParams: Promise<Record<string, string>>
@@ -19,7 +19,7 @@ const Home = async ({ searchParams }: Props) => {
 
   return (
     <HydrationBoundary state={dehydratedState}>
-      <ListTask />
+      <TaskList />
     </HydrationBoundary>
   )
 }
