@@ -4,9 +4,10 @@ import { Badge } from '@iac/ui/badge'
 import { Button } from '@iac/ui/button'
 import { MultiSelect } from '@iac/ui/multi-select'
 import { Popover, PopoverContent, PopoverTrigger } from '@iac/ui/popover'
+import { Select } from '@iac/ui/select'
 import { Typography } from '@iac/ui/typography'
 import { useQuery } from '@tanstack/react-query'
-import { Filter } from 'lucide-react'
+import { Filter, FilterX } from 'lucide-react'
 import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { getTaskCategories } from '~/app/api/task/categories/service'
@@ -24,7 +25,6 @@ export const FilterTask = () => {
   })
 
   const selectedCategories: string[] = query.categories ? JSON.parse(decompressFromEncodedURIComponent(query.categories)) : []
-  const selectedPriority = query.priority ? [query.priority] : []
 
   const onChangeFilter = (key: string, value: string) => {
     const newQuery = new URLSearchParams({ ...query, [key]: value })
@@ -47,7 +47,7 @@ export const FilterTask = () => {
 
   const priority = Object.values(TaskPriority)
 
-  const filtersCount = Object.keys(query).length
+  const filtersCount = Object.keys(query).length - (query.status ? 1 : 0)
 
   return (
     <Popover>
@@ -63,7 +63,29 @@ export const FilterTask = () => {
 
         <div className="flex flex-col gap-2">
           <MultiSelect className="text-sm" position="top" placeholder="Filter by category" onChange={handleCategories} values={selectedCategories} options={categories} />
-          <MultiSelect className="text-sm" position="top" placeholder="Filter by priority" onSelect={handlePriority} values={selectedPriority} options={priority} />
+          <Select placeholder="Filter by priority" onChange={handlePriority} value={query.priority}>
+            <Select.Trigger />
+            <Select.Content>
+              <Select.Item value="">None</Select.Item>
+              {priority.map(item => (
+                <Select.Item key={item} value={item}>
+                  <span className="capitalize"> {item}</span>
+                </Select.Item>
+              ))}
+            </Select.Content>
+          </Select>
+          <Button
+            variant="outline"
+            size="icon"
+            className="ml-auto flex items-center justify-center text-xs"
+            onClick={() => {
+              const newQuery = new URLSearchParams({ status: query.status || 'pending' })
+
+              router.push('/?'.concat(newQuery.toString()))
+            }}
+          >
+            <FilterX className="w-5" />
+          </Button>
         </div>
       </PopoverContent>
     </Popover>

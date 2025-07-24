@@ -1,5 +1,5 @@
 import z from 'zod'
-import { updateTaskSchema } from '~/app/lib/schemas/task'
+import { searchTaskSchema, updateTaskSchema } from '~/app/lib/schemas/task'
 
 export type UpdateTaskDto = z.infer<typeof updateTaskSchema>
 
@@ -9,3 +9,9 @@ export type Task = UpdateTaskDto & {
   updatedAt: Date
   userId: string
 }
+
+export type SearchTaskDto = Partial<
+  z.infer<typeof searchTaskSchema> & {
+    categories: string[]
+  }
+>

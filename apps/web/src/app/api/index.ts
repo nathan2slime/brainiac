@@ -28,8 +28,19 @@ api.interceptors.response.use(
   (error: AxiosError) => {
     if (typeof window === 'undefined') return Promise.reject(error)
 
-    const message = String(error.response ? error.response.data : error.message)
+    if (error.response) {
+      const status = error.response.status
 
-    toast.error(message)
+      if (status === 404) {
+        toast.error('Resource not found')
+      } else {
+        const message = String(error.response.data)
+        toast.error(message)
+      }
+    } else {
+      toast.error(error.message)
+    }
+
+    return Promise.reject(error)
   }
 )
