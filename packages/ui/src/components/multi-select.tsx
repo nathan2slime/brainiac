@@ -90,7 +90,7 @@ export const MultiSelect = ({ options, values, onChange, onSelect, position, pla
   const currentValues = values.filter(value => options.includes(value))
 
   return (
-    <div ref={ref} className={base({ className })}>
+    <div ref={ref} data-testid="multi-select" className={base({ className })}>
       <div className={header({ isOpen })} onClick={onToggleOpen}>
         {currentValues.length > 0 ? (
           <span className="truncate w-40">{new Intl.ListFormat('en', { style: 'long', type: 'conjunction' }).format(currentValues)}</span>
