@@ -16,7 +16,7 @@ const tabListStyles = tv({
 })
 
 const tabStyles = tv({
-  base: 'px-4 py-2 cursor-pointer focus:outline-none text-base-text',
+  base: 'md:px-4 py-2 px-4 text-sm md:text-base cursor-pointer focus:outline-none text-base-text',
   variants: {
     active: {
       true: 'border-b-2 text-base-rose border-base-rose font-semibold',
@@ -44,7 +44,9 @@ export const Tabs = ({ defaultIndex = 0, children, onChangeTab }: TabsProps) => 
 
   return (
     <TabContext.Provider value={{ activeIndex, setActiveIndex, onChangeTab: onChangeTab || (() => {}) }}>
-      <div data-testid="tabs">{children}</div>
+      <div data-testid="tabs" className="w-fit mx-auto overflow-y-auto">
+        {children}
+      </div>
     </TabContext.Provider>
   )
 }

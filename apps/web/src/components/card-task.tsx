@@ -1,11 +1,14 @@
+'use client'
+
 import { Card } from '@iac/ui/card'
 import { Chip, ChipProps } from '@iac/ui/chip'
 import { Typography } from '@iac/ui/typography'
 import clsx from 'clsx'
-import { ArrowDown, ArrowUp, Ellipsis, Minus } from 'lucide-react'
+import { ArrowDown, ArrowUp, Minus } from 'lucide-react'
 
 import { Task } from '~/app/lib/models/task'
-import { TaskPriority } from '~/app/lib/schemas/task'
+import { TaskPriority, TaskStatus } from '~/app/lib/schemas/task'
+import { ActionCardTask } from '~/components/action-task'
 
 type Props = {
   data: Task
@@ -30,7 +33,7 @@ const PRIORITY_STYLES: Record<TaskPriority, TaskPriorityStyle> = {
   }
 }
 
-export const CardTask = ({ data: { id, title, description, priority, categories = [] } }: Props) => {
+export const CardTask = ({ data: { id, title, status, description, priority, categories = [] } }: Props) => {
   const priorityStyle = PRIORITY_STYLES[priority || TaskPriority.MEDIUM]
 
   return (
@@ -44,7 +47,7 @@ export const CardTask = ({ data: { id, title, description, priority, categories 
             dangerouslySetInnerHTML={{ __html: title || 'No title' }}
           />
 
-          <Ellipsis className="w-5 cursor-pointer text-base-muted group-hover:text-base-rose transition-all duration-150" />
+          <ActionCardTask status={status || TaskStatus.PENDING} id={id} />
         </div>
         <Typography.Body
           className={clsx('text-base-text/70 mt-2 duration-150 transition-all outline-none line-clamp-4', {

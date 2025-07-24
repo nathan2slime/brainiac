@@ -22,5 +22,5 @@ export const SearchTask = () => {
     router.push('/?'.concat(newParams.toString()))
   }, 300)
 
-  return <Input onChange={onSearch} className="w-full md:w-fit" placeholder="Search tasks..." />
+  return <Input onChange={onSearch} className="w-full lg:max-w-xs" placeholder="Search tasks..." />
 }

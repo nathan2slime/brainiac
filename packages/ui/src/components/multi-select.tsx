@@ -20,7 +20,7 @@ const styles = tv({
     base: 'relative w-full max-w-xs',
     header:
       'flex items-center border-2 cursor-pointer border-base-highlight-med [&>svg]:text-base-muted [&>svg]:duration-150 [&>svg]:transition-all text-base-text text-sm duration-150 transition-all justify-between px-3 py-2 h-10 bg-moon-surface rounded-lg',
-    content: 'absolute border border-base-highlight-high duration-150 transition-all w-full bg-moon-base rounded-lg max-h-40 overflow-y-auto',
+    content: 'absolute border-2 border-base-muted duration-150 transition-all w-full bg-moon-base rounded-lg max-h-52 overflow-y-auto',
     option: 'px-3 py-2 hover:bg-moon-surface text-sm hover:text-base-text duration-150 transition-all cursor-pointer h-10'
   },
   variants: {
@@ -28,7 +28,7 @@ const styles = tv({
       true: {
         header: 'border-moon-foam [&>svg]:rotate-180 z-10 [&>svg]:text-moon-foam',
         wrapper: 'z-50 pointer-events-auto',
-        content: 'opacity-100 z-40 border-transparent pointer-events-auto'
+        content: 'opacity-100 z-40 pointer-events-auto'
       },
       false: {
         wrapper: '-z-50 pointer-events-none',
@@ -38,7 +38,7 @@ const styles = tv({
     },
     isSelected: {
       true: {
-        option: 'text-moon-foam'
+        option: 'text-moon-foam font-bold underline'
       },
       false: {
         option: 'text-base-text'
@@ -72,14 +72,16 @@ export const MultiSelect = ({ options, values, onChange, onSelect, position, pla
 
   const onToggleOpen = () => setIsOpen(isOpen => !isOpen)
 
+  const currentValues = values.filter(value => options.includes(value))
+
   return (
     <>
       {createPortal(<div data-testid="multi-select" onClick={() => setIsOpen(false)} className={wrapper({ className, isOpen })} />, document.body)}
 
       <div className={base({ className })}>
         <div className={header({ isOpen })} onClick={onToggleOpen}>
-          {values.length > 0 ? (
-            <span className="truncate w-40">{new Intl.ListFormat('en', { style: 'long', type: 'conjunction' }).format(values)}</span>
+          {currentValues.length > 0 ? (
+            <span className="truncate w-40">{new Intl.ListFormat('en', { style: 'long', type: 'conjunction' }).format(currentValues)}</span>
           ) : (
             <span className="text-dawn-muted">{placeholder}</span>
           )}
@@ -92,6 +94,8 @@ export const MultiSelect = ({ options, values, onChange, onSelect, position, pla
               {value}
             </div>
           ))}
+
+          {options.length === 0 && <div className="px-3 py-2 text-sm text-base-text/70">No options available</div>}
         </div>
       </div>
     </>
