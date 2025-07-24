@@ -7,7 +7,7 @@
     "dev": "tsup --watch",
     "test": "vitest run",
     "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
-    "build": "tsup"
+    "build": "tsup & build:styles"
   },
   "exports": {
     "./styles.css": "./dist/styles.css",
