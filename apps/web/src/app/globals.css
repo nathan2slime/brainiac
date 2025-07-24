@@ -4,6 +4,8 @@
 @plugin "tailwindcss-animate";
 
 * {
+  @apply outline-none;
+
   ::-webkit-scrollbar {
     width: 4px;
     height: 0px;

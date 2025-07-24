@@ -17,7 +17,7 @@ const styles = tv({
   slots: {
     base: 'relative w-full max-w-xs',
     header:
-      'flex items-center border-2 cursor-pointer border-base-highlight-med [&>svg]:text-base-muted [&>svg]:duration-150 [&>svg]:transition-all text-base-text text-sm duration-150 transition-all justify-between px-3 py-2 h-10 bg-moon-surface rounded-lg',
+      'flex items-center border-2 cursor-pointer border-base-highlight-med [&>svg]:text-base-muted [&>svg]:duration-150 [&>svg]:transition-all text-base-text text-base duration-150 transition-all justify-between px-3 py-2 h-10 bg-moon-surface rounded-lg',
     content: 'absolute border-2 border-base-muted duration-150 transition-all w-full bg-moon-base rounded-lg max-h-52 overflow-y-auto',
     option: 'px-3 py-2 hover:bg-moon-surface text-sm hover:text-base-text duration-150 transition-all cursor-pointer h-10'
   },
