@@ -5,7 +5,12 @@
   "tasks": {
     "build": {
       "dependsOn": [],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "storybook-static/**",
+        "dist/**"
+      ]
     },
     "check-types": {
       "dependsOn": ["^check-types"]
