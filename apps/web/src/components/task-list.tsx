@@ -9,6 +9,8 @@ import { searchTaskService } from '~/app/api/task/search/service'
 import { TaskStatus } from '~/app/lib/schemas/task'
 import { CardTask } from '~/components/card-task'
 
+import Brainiac from '~/assets/icons/brainiac.svg'
+
 export const TaskList = () => {
   const searchParams = useSearchParams()
   const router = useRouter()
@@ -33,16 +35,22 @@ export const TaskList = () => {
 
   return (
     <div>
+      <Brainiac className="text-base-rose w-14 mx-auto mb-4 shrink-0 block md:hidden" />
+
       <div className="flex flex-col gap-4">
-        <Tabs defaultIndex={defaultStatusIndex || 0} onChangeTab={onChangeStatus}>
-          <Tabs.List>
-            {taskStatuses.map((status, index) => (
-              <Tabs.Tab key={status} index={index}>
-                {status}
-              </Tabs.Tab>
-            ))}
-          </Tabs.List>
-        </Tabs>
+        <div className="max-w-2xl w-full mx-auto">
+          <div className="ml-auto w-fit">
+            <Tabs defaultIndex={defaultStatusIndex || 0} onChangeTab={onChangeStatus}>
+              <Tabs.List>
+                {taskStatuses.map((status, index) => (
+                  <Tabs.Tab key={status} index={index}>
+                    {status}
+                  </Tabs.Tab>
+                ))}
+              </Tabs.List>
+            </Tabs>
+          </div>
+        </div>
         {tasks.length ? (
           <Masonry
             config={{

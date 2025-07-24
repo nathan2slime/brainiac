@@ -3,8 +3,8 @@ import z from 'zod'
 
 export enum TaskStatus {
   PENDING = 'pending',
-  COMPLETED = 'completed',
-  IN_PROGRESS = 'in_progress'
+  IN_PROGRESS = 'in_progress',
+  COMPLETED = 'completed'
 }
 
 export enum TaskPriority {

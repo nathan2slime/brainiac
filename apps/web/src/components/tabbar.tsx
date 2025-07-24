@@ -25,7 +25,7 @@ export const TabBar = () => {
   })
 
   return (
-    <div className="bg-moon-surface/40 fixed bottom-0 right-1/2 translate-x-1/2 rounded-t-3xl rounded-b-none md:bottom-4  md:max-w-2xl backdrop-blur-md w-full md:rounded-3xl p-4">
+    <div className="bg-moon-surface/40 border-x-2 border-t-2 border-b-0 md:border-b-2 border-base-highlight-med fixed bottom-0 right-1/2 translate-x-1/2 rounded-t-3xl rounded-b-none md:bottom-4  md:max-w-2xl backdrop-blur-md w-full md:rounded-3xl p-4">
       <div className="w-full flex items-center gap-4 justify-between relative h-full">
         <Brainiac className="text-base-rose w-12 md:w-16 shrink-0 hidden md:block" />
 

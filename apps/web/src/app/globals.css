@@ -6,6 +6,7 @@
 * {
   ::-webkit-scrollbar {
     width: 4px;
+    height: 0px;
   }
 
   ::-webkit-scrollbar-track {
@@ -13,7 +14,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-base-rose);
+    background: var(--color-base-subtle);
     border-radius: 8px;
   }
 }

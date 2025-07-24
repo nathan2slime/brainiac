@@ -46,6 +46,11 @@
       "import": "./dist/select.js",
       "require": "./dist/select.cjs"
     },
+    "./dialog": {
+      "types": "./dist/dialog.d.ts",
+      "import": "./dist/dialog.js",
+      "require": "./dist/dialog.cjs"
+    },
     "./message": {
       "types": "./dist/message.d.ts",
       "import": "./dist/message.js",

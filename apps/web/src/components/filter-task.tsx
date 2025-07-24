@@ -52,13 +52,13 @@ export const FilterTask = () => {
   return (
     <Popover>
       <PopoverTrigger className="w-full">
-        <Badge visible={filtersCount > 0} value={filtersCount}>
+        <Badge visible={filtersCount > 0} value={filtersCount > 2 ? 2 : filtersCount}>
           <Button size="icon" variant="outline">
             <Filter className="w-5" />
           </Button>
         </Badge>
       </PopoverTrigger>
-      <PopoverContent className="w-full min-w-60 bg-moon-highlight-low">
+      <PopoverContent className="w-full min-w-60 bg-base-overlay">
         <Typography.H5 className="mb-4 text-base-text">Filters</Typography.H5>
 
         <div className="flex flex-col gap-2">
