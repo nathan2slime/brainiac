@@ -46,9 +46,3 @@ export const searchTaskSchema = z.object({
     })
     .optional()
 })
-
-export type SearchTaskDto = Partial<
-  z.infer<typeof searchTaskSchema> & {
-    categories: string[]
-  }
->

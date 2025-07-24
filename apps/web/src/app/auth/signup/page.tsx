@@ -3,10 +3,10 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@iac/ui/button'
 import { Input } from '@iac/ui/input'
-import { Loading } from '@iac/ui/loading'
 import { Message } from '@iac/ui/message'
 import { Typography } from '@iac/ui/typography'
 import { useMutation } from '@tanstack/react-query'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Controller, FormProvider, useForm } from 'react-hook-form'
@@ -18,6 +18,10 @@ import { createUserSchema } from '~/app/lib/schemas/user'
 import { useAuthStore } from '~/store/auth'
 
 import Brainiac from '~/assets/icons/brainiac.svg'
+
+const Loading = dynamic(async () => (await import('@iac/ui/loading')).Loading, {
+  ssr: false
+})
 
 const SignUp = () => {
   const router = useRouter()

@@ -7,7 +7,7 @@
     "dev": "tsup --watch",
     "test": "vitest run",
     "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
-    "build": "tsup"
+    "build": "tsup & pnpm build:styles"
   },
   "exports": {
     "./styles.css": "./dist/styles.css",
@@ -46,10 +46,15 @@
       "import": "./dist/select.js",
       "require": "./dist/select.cjs"
     },
-    "./dialog": {
-      "types": "./dist/dialog.d.ts",
-      "import": "./dist/dialog.js",
-      "require": "./dist/dialog.cjs"
+    "./textarea": {
+      "types": "./dist/textarea.d.ts",
+      "import": "./dist/textarea.js",
+      "require": "./dist/textarea.cjs"
+    },
+    "./tag-input": {
+      "types": "./dist/tag-input.d.ts",
+      "import": "./dist/tag-input.js",
+      "require": "./dist/tag-input.cjs"
     },
     "./message": {
       "types": "./dist/message.d.ts",
@@ -60,6 +65,11 @@
       "types": "./dist/card.d.ts",
       "import": "./dist/card.js",
       "require": "./dist/card.cjs"
+    },
+    "./modal": {
+      "types": "./dist/modal.d.ts",
+      "import": "./dist/modal.js",
+      "require": "./dist/modal.cjs"
     },
     "./typography": {
       "types": "./dist/typography.d.ts",

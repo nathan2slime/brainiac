@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import { ArrowDown, ArrowUp, Minus } from 'lucide-react'
 
 import { Task } from '~/app/lib/models/task'
-import { TaskPriority, TaskStatus } from '~/app/lib/schemas/task'
+import { TaskPriority } from '~/app/lib/schemas/task'
 import { ActionCardTask } from '~/components/action-task'
 
 type Props = {
@@ -33,7 +33,8 @@ const PRIORITY_STYLES: Record<TaskPriority, TaskPriorityStyle> = {
   }
 }
 
-export const CardTask = ({ data: { id, title, status, description, priority, categories = [] } }: Props) => {
+export const CardTask = ({ data: task }: Props) => {
+  const { id, title, description, priority, categories = [] } = task
   const priorityStyle = PRIORITY_STYLES[priority || TaskPriority.MEDIUM]
 
   return (
@@ -47,7 +48,7 @@ export const CardTask = ({ data: { id, title, status, description, priority, cat
             dangerouslySetInnerHTML={{ __html: title || 'No title' }}
           />
 
-          <ActionCardTask status={status || TaskStatus.PENDING} id={id} />
+          <ActionCardTask task={task} />
         </div>
         <Typography.Body
           className={clsx('text-base-text/70 mt-2 duration-150 transition-all outline-none line-clamp-4', {

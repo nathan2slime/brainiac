@@ -25,16 +25,26 @@ export const PUT = async (req: NextRequest, { params }: Args) => {
     const userId = sessionCookie.value
     const db = await getDatabase()
 
-    db.data.tasks = db.data.tasks.map(existingTask => {
-      if (existingTask.id === id && existingTask.userId === userId) {
-        return {
+    const existingTaskIndex = db.data.tasks.findIndex(task => task.id === id && task.userId === userId)
+
+    if (existingTaskIndex < 0) {
+      return NextResponse.json('Task not found', { status: 404 })
+    }
+
+    if (existingTaskIndex >= 0) {
+      const tasks = [...db.data.tasks]
+      const existingTask = tasks[existingTaskIndex]
+
+      if (existingTask) {
+        tasks[existingTaskIndex] = {
           ...existingTask,
           ...payload.data,
           updatedAt: new Date()
         }
+
+        db.data.tasks = tasks
       }
-      return existingTask
-    })
+    }
 
     await db.write()
 

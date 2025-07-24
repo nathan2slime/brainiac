@@ -1,5 +1,3 @@
-'use client'
-
 import { chaoticOrbit } from 'ldrs'
 
 import { createElement } from 'react'

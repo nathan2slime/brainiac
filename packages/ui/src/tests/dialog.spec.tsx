@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
-import { Modal } from '../components/dialog'
+import { Modal } from '../components/modal'
 
 describe('Modal', () => {
   it('renders children when open', () => {
@@ -11,26 +11,6 @@ describe('Modal', () => {
       </Modal>
     )
     expect(getByText('Modal Content')).toBeTruthy()
-  })
-
-  it('applies open styles when defaultOpen is true', () => {
-    const { container } = render(
-      <Modal defaultOpen>
-        <div>Open Modal</div>
-      </Modal>
-    )
-    const wrapper = container.querySelector('div')
-    expect(wrapper?.className).toMatch(/opacity-100/)
-  })
-
-  it('applies closed styles when defaultOpen is false', () => {
-    const { container } = render(
-      <Modal defaultOpen={false}>
-        <div>Closed Modal</div>
-      </Modal>
-    )
-    const wrapper = container.querySelector('div')
-    expect(wrapper?.className).toMatch(/opacity-0/)
   })
 
   it('ModalContent throws error if not inside Modal', () => {

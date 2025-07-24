@@ -1,8 +1,8 @@
 import { api } from '~/app/api'
-import { Task } from '~/app/lib/models/task'
+import { Task, UpdateTaskDto } from '~/app/lib/models/task'
 
-export const createTaskService = async () => {
-  const { data } = await api.post<Task>('/task/create')
+export const createTaskService = async (payload: UpdateTaskDto) => {
+  const { data } = await api.post<Task>('/task/create', payload)
 
   return data
 }
