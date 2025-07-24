@@ -2,9 +2,9 @@ import { decompressFromEncodedURIComponent } from 'lz-string'
 import z from 'zod'
 
 export enum TaskStatus {
+  PENDING = 'pending',
   COMPLETED = 'completed',
-  IN_PROGRESS = 'in_progress',
-  PENDING = 'pending'
+  IN_PROGRESS = 'in_progress'
 }
 
 export enum TaskPriority {
