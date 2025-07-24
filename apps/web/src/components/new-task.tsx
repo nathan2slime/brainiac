@@ -88,7 +88,7 @@ export const NewTask = ({ isPending, onSubmit, data, isOpen, onSetIsOpen }: Prop
                   <div className="flex flex-col gap-2">
                     <Typography.Body className="text-base-text">Title</Typography.Body>
 
-                    <Input {...field} />
+                    <Input {...field} maxLength={80} />
                   </div>
                 )}
               />
@@ -99,7 +99,7 @@ export const NewTask = ({ isPending, onSubmit, data, isOpen, onSetIsOpen }: Prop
                   <div className="flex flex-col gap-2">
                     <Typography.Body className="text-base-text">Description</Typography.Body>
 
-                    <Textarea {...field} />
+                    <Textarea {...field} maxLength={250} />
                   </div>
                 )}
               />

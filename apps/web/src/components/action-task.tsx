@@ -90,10 +90,10 @@ export const ActionCardTask = ({ task }: Props) => {
 
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
-      <PopoverTrigger>
-        <Ellipsis className="w-5 cursor-pointer text-base-muted group-hover:text-base-rose transition-all duration-150" />
+      <PopoverTrigger asChild>
+        <Ellipsis onClick={e => e.stopPropagation()} className="w-5 shrink-0 cursor-pointer text-base-muted group-hover:text-base-rose transition-all duration-150" />
       </PopoverTrigger>
-      <PopoverContent className="w-full min-w-20 bg-base-overlay flex flex-col gap-2 overflow-hidden">
+      <PopoverContent onClick={e => e.stopPropagation()} className="w-full min-w-20 bg-base-overlay flex flex-col gap-2 overflow-hidden">
         <Button
           onClick={() => {
             setCurrentTask(task)

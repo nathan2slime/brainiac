@@ -5,20 +5,22 @@ import { Chip, ChipProps } from '@iac/ui/chip'
 import { Typography } from '@iac/ui/typography'
 import clsx from 'clsx'
 import { ArrowDown, ArrowUp, Minus } from 'lucide-react'
+import { useState } from 'react'
 
 import { Task } from '~/app/lib/models/task'
 import { TaskPriority } from '~/app/lib/schemas/task'
 import { ActionCardTask } from '~/components/action-task'
+import { TaskDetails } from '~/components/task-details'
 
 type Props = {
   data: Task
 }
 
-type TaskPriorityStyle = {
+export type TaskPriorityStyle = {
   icon: React.ReactNode
 } & Pick<ChipProps, 'variant'>
 
-const PRIORITY_STYLES: Record<TaskPriority, TaskPriorityStyle> = {
+export const PRIORITY_STYLES: Record<TaskPriority, TaskPriorityStyle> = {
   [TaskPriority.HIGH]: {
     icon: <ArrowUp className="w-4" />,
     variant: 'secondary'
@@ -36,9 +38,14 @@ const PRIORITY_STYLES: Record<TaskPriority, TaskPriorityStyle> = {
 export const CardTask = ({ data: task }: Props) => {
   const { id, title, description, priority, categories = [] } = task
   const priorityStyle = PRIORITY_STYLES[priority || TaskPriority.MEDIUM]
+  const [isOpenDetails, setIsOpenDetails] = useState(false)
 
   return (
-    <Card className="group cursor-pointer pr-4">
+    <Card className="group cursor-pointer pr-4" onClick={() => setIsOpenDetails(true)}>
+      <div onClick={e => e.stopPropagation()}>
+        <TaskDetails task={task} isOpen={isOpenDetails} onClose={() => setIsOpenDetails(false)} />
+      </div>
+
       <div className="flex flex-col">
         <div className="flex justify-between items-center gap-1">
           <Typography.H5
