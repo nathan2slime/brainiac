@@ -6,7 +6,7 @@ import { HTMLMotionProps, motion } from 'framer-motion'
 import { VariantProps, tv } from 'tailwind-variants'
 
 const styles = tv({
-  base: 'text-base font-semibold flex justify-center items-center disabled:pointer-events-none disabled:opacity-30 cursor-pointer duration-150 transition-all rounded-lg',
+  base: 'text-base font-semibold flex gap-1 justify-center items-center disabled:pointer-events-none disabled:opacity-30 cursor-pointer duration-150 transition-all rounded-lg',
   variants: {
     variant: {
       primary: 'bg-base-rose text-dawn-text hover:bg-base-rose/80',

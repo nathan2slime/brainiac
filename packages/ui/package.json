@@ -16,6 +16,11 @@
       "import": "./dist/button.js",
       "require": "./dist/button.cjs"
     },
+    "./popover": {
+      "types": "./dist/popover.d.ts",
+      "import": "./dist/popover.js",
+      "require": "./dist/popover.cjs"
+    },
     "./multi-select": {
       "types": "./dist/multi-select.d.ts",
       "import": "./dist/multi-select.js",
@@ -36,6 +41,11 @@
       "import": "./dist/input.js",
       "require": "./dist/input.cjs"
     },
+    "./select": {
+      "types": "./dist/select.d.ts",
+      "import": "./dist/select.js",
+      "require": "./dist/select.cjs"
+    },
     "./message": {
       "types": "./dist/message.d.ts",
       "import": "./dist/message.js",
@@ -50,9 +60,20 @@
       "types": "./dist/typography.d.ts",
       "import": "./dist/typography.js",
       "require": "./dist/typography.cjs"
+    },
+    "./badge": {
+      "types": "./dist/badge.d.ts",
+      "import": "./dist/badge.js",
+      "require": "./dist/badge.cjs"
+    },
+    "./tabs": {
+      "types": "./dist/tabs.d.ts",
+      "import": "./dist/tabs.js",
+      "require": "./dist/tabs.cjs"
     }
   },
   "dependencies": {
+    "@radix-ui/react-popover": "^1.1.14",
     "@tailwindcss/postcss": "^4.1.11",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.6",
@@ -62,7 +83,8 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwind-variants": "^1.0.0",
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "^4.1.11",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@iac/tailwind-config": "workspace:*",

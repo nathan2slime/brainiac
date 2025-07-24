@@ -1,3 +1,19 @@
 @import "@iac/tailwind-config";
 @import "@iac/ui/styles.css";
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+* {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-base-rose);
+    border-radius: 8px;
+  }
+}
