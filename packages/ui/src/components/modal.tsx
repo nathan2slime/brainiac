@@ -1,12 +1,12 @@
-import { type ReactNode, createContext, useContext } from 'react'
+import { HTMLAttributes, type ReactNode, createContext, useContext } from 'react'
 import { createPortal } from 'react-dom'
 import { tv } from 'tailwind-variants'
 
 const variants = tv({
   slots: {
-    wrapper: 'fixed inset-0 duration-150 transition-all z-50 flex items-center justify-center bg-dawn-iris/5 backdrop-blur-sm',
+    wrapper: 'fixed inset-0 z-[60] duration-150 transition-all flex items-center justify-center bg-dawn-iris/5 backdrop-blur-sm',
     base: 'relative w-full max-w-lg mx-4',
-    content: 'w-full bg-moon-base border border-base-highlight-med rounded-lg h-fit p-4'
+    content: 'w-full bg-moon-base border border-base-highlight-low rounded-lg h-fit p-4'
   },
   variants: {
     isOpen: {
@@ -34,17 +34,18 @@ type ModalProps = Partial<{
   defaultOpen: boolean
   isOpen: boolean
   onOpenChange: (open: boolean) => void
-}>
+}> &
+  HTMLAttributes<HTMLDivElement>
 
 const styles = variants()
 
-const Modal = ({ children, isOpen, onOpenChange }: ModalProps) => {
+const Modal = ({ children, isOpen, onOpenChange, ...props }: ModalProps) => {
   const value = { isOpen, onOpenChange }
 
   return createPortal(
     <ModalContext.Provider value={value}>
       <div onClick={() => onOpenChange && onOpenChange(false)} className={styles.wrapper({ isOpen })}>
-        <div className={styles.base({ isOpen })}>{children}</div>
+        <div className={styles.base({ isOpen, ...props })}>{children}</div>
       </div>
     </ModalContext.Provider>,
     document.body

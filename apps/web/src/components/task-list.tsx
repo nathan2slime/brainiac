@@ -3,6 +3,7 @@
 import { Tabs } from '@iac/ui/tabs'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { Planet } from 'react-kawaii'
 import { Masonry } from 'react-plock'
 
 import { searchTaskService } from '~/app/api/task/search/service'
@@ -108,7 +109,11 @@ export const TaskList = () => {
             render={item => <CardTask key={item.id} data={item} />}
           />
         ) : (
-          <div />
+          <div className="flex justify-center flex-col items-center w-fit mx-auto">
+            <Planet size={200} color="var(--color-base-muted)" />
+
+            <p className="text-base-muted text-center mt-4">No tasks found. Try changing the status or creating a new task.</p>
+          </div>
         )}
       </div>
     </div>

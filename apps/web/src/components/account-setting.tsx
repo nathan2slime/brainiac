@@ -4,10 +4,11 @@ import { Button } from '@iac/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '@iac/ui/popover'
 import { Typography } from '@iac/ui/typography'
 import Avatar from 'avvvatars-react'
-import { ChartArea, LogOut, Settings } from 'lucide-react'
+import { LogOut, Settings } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 import { logoutService } from '~/app/api/auth/logout/service'
+import { UserStatsDialog } from '~/components/user-stats-dialog'
 import { useAuthStore } from '~/store/auth'
 
 export const AccountSetting = () => {
@@ -38,10 +39,8 @@ export const AccountSetting = () => {
         </div>
 
         <div className="flex flex-col pl-4 gap-2">
-          <Button variant="outline" className="justify-start text-sm">
-            <ChartArea className="w-5" />
-            My Stats
-          </Button>
+          <UserStatsDialog />
+
           <Button variant="destructive" className="justify-start text-sm" onClick={onLogout}>
             <LogOut className="w-5" />
             Sair

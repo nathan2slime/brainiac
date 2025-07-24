@@ -62,6 +62,12 @@ export const NewTask = ({ isPending, onSubmit, data, isOpen, onSetIsOpen }: Prop
   }
 
   useEffect(() => {
+    if (!isOpen) {
+      form.reset()
+    }
+  }, [isOpen])
+
+  useEffect(() => {
     if (data) {
       form.reset(data)
     }
@@ -129,6 +135,10 @@ export const NewTask = ({ isPending, onSubmit, data, isOpen, onSetIsOpen }: Prop
                     <TagInput {...field} />
 
                     {error && <Message>{error.message}</Message>}
+
+                    <Typography.Caption className="text-base-text italic">
+                      Press <span className="text-base-rose">ENTER</span> to add a category
+                    </Typography.Caption>
                   </div>
                 )}
               />
