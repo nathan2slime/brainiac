@@ -2,7 +2,7 @@ import axios, { AxiosError } from 'axios'
 import { toast } from 'sonner'
 
 export const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_SITE_URL || '/api',
+  baseURL: typeof window === 'undefined' ? process.env.NEXT_PUBLIC_INTERNAL_API_URL : process.env.NEXT_PUBLIC_API_URL || '/api',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',

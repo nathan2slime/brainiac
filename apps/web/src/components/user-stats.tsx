@@ -1,11 +1,9 @@
 import { Button } from '@iac/ui/button'
 import { Card } from '@iac/ui/card'
 import { Typography } from '@iac/ui/typography'
-import { useQuery } from '@tanstack/react-query'
 import { X } from 'lucide-react'
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts'
 
-import { searchTaskService } from '~/app/api/task/search/service'
 import { Task } from '~/app/lib/models/task'
 import { TaskStatus } from '~/app/lib/schemas/task'
 import { TooltipChart } from '~/components/tooltip-chart'
@@ -20,15 +18,10 @@ const CATEGORY_COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#A28FD0', 
 
 type Props = Partial<{
   onClose: () => void
+  tasks: Task[]
 }>
 
-export const UserStats = ({ onClose }: Props) => {
-  const { data: tasks = [] } = useQuery<Task[]>({
-    queryKey: ['stats-tasks'],
-    queryFn: async () => searchTaskService({}),
-    refetchInterval: 1000 * 60 * 1
-  })
-
+export const UserStats = ({ onClose, tasks = [] }: Props) => {
   const statusData = [
     { name: TaskStatus.PENDING, value: tasks.filter(t => t.status === TaskStatus.PENDING).length },
     { name: TaskStatus.IN_PROGRESS, value: tasks.filter(t => t.status === TaskStatus.IN_PROGRESS).length },

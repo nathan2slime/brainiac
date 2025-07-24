@@ -59,7 +59,7 @@ export const TabBar = () => {
       userId
     }
 
-    if (String(currentStatus) === 'pending') {
+    if (String(currentStatus) === 'pending' || !currentStatus) {
       queryClient.setQueryData<Task[]>(['search-tasks'], old => [newTask, ...(old || [])])
     }
 
